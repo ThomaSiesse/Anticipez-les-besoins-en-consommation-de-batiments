@@ -1,0 +1,11 @@
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Données lourdes
+*.csv
+
+# Python
+__pycache__/
+*.pyc
+.env
+
