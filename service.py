@@ -62,7 +62,7 @@ class SeattleGHGPredictor:
         self.enc = model_ref.custom_objects["encoder"]
         self.feature_names = model_ref.custom_objects["feature_names"]
 
-    @bentoml.api()
+    @bentoml.api(route="/predict")
     def predict(self, input_data: BuildingInput) -> dict:
         surface_log = np.log1p(input_data.surface_total_sqft)
         cat_data = pd.DataFrame({
@@ -90,6 +90,5 @@ class SeattleGHGPredictor:
         prediction_log = self.model.predict(X.values)
         prediction = np.expm1(prediction_log[0])
         return {
-            "emissions_co2_tonnes": round(float(prediction), 2),
             "message": f"Estimated CO2 emissions: {round(float(prediction), 2)} tonnes/year"
         }

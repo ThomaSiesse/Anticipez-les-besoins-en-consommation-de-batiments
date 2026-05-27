@@ -16,6 +16,7 @@ df.dtypes         # types de colonnes
 df.head()         # aperçu
 df.describe()     # statistiques descriptives
 df.info()         # résumé global
+df.value_counts() # Différentes valeurs
 ```
 
 ---
@@ -23,12 +24,14 @@ df.info()         # résumé global
 ## 2. Gérer les valeurs manquantes
 
 ### Détecter
+
 ```python
 df.isnull().sum()
 df.isnull().mean() * 100  # pourcentage par colonne
 ```
 
 ### Traiter
+
 ```python
 # Supprimer les lignes avec trop de NaN
 df.dropna(thresh=len(df.columns) * 0.5, inplace=True)
@@ -81,6 +84,7 @@ df["nom"] = df["nom"].str.replace(r"[^a-z0-9]", "", regex=True)  # caractères s
 ## 6. Détecter et traiter les outliers
 
 ### Méthode IQR (robuste)
+
 ```python
 Q1 = df["colonne"].quantile(0.25)
 Q3 = df["colonne"].quantile(0.75)
@@ -93,6 +97,7 @@ df_clean = df[
 ```
 
 ### Méthode Z-score
+
 ```python
 from scipy import stats
 df = df[(abs(stats.zscore(df["colonne"])) < 3)]
@@ -183,19 +188,19 @@ sns.heatmap(df.corr(), annot=True, fmt=".2f")
 
 ## Récapitulatif des étapes
 
-| Étape | Action |
-|-------|--------|
-| 1 | Explorer les données (EDA) |
-| 2 | Gérer les valeurs manquantes |
-| 3 | Supprimer les doublons |
-| 4 | Corriger les types |
-| 5 | Nettoyer les textes |
-| 6 | Traiter les outliers |
-| 7 | Encoder les catégorielles |
-| 8 | Normaliser / Standardiser |
-| 9 | Gérer le déséquilibre de classes |
-| 10 | Vérification finale |
+| Étape | Action                           |
+| ----- | -------------------------------- |
+| 1     | Explorer les données (EDA)       |
+| 2     | Gérer les valeurs manquantes     |
+| 3     | Supprimer les doublons           |
+| 4     | Corriger les types               |
+| 5     | Nettoyer les textes              |
+| 6     | Traiter les outliers             |
+| 7     | Encoder les catégorielles        |
+| 8     | Normaliser / Standardiser        |
+| 9     | Gérer le déséquilibre de classes |
+| 10    | Vérification finale              |
 
 ---
 
-*Fichier généré pour usage ML — Stack : Python / pandas / scikit-learn / imbalanced-learn*
+_Fichier généré pour usage ML — Stack : Python / pandas / scikit-learn / imbalanced-learn_

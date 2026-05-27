@@ -1,0 +1,14 @@
+service: "service.py:SeattleGHGPredictor"
+name: seattle-ghg-predictor
+
+include:
+  - "service.py"
+models:
+  - seattle_ghg_model:latest
+python:
+  packages:
+    - scikit-learn==1.7.2
+    - pandas==2.3.3
+    - numpy==2.3.5
+    - pydantic==2.12.4
+    - bentoml==1.4.39
