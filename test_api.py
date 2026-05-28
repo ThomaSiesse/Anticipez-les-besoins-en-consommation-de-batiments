@@ -10,8 +10,8 @@ data = {
         "number_of_floors": 10,
         "year_built": 1995,
         "parking_surface_sqft": 5000,
-        "neighborhood": "DOWNTOWN"
-    }
+        "neighborhood": "CENTRAL"
+      }
 }
 
 response = requests.post("http://localhost:3000/predict", json=data)
