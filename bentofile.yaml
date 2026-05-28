@@ -3,8 +3,9 @@ name: seattle-ghg-predictor
 
 include:
   - "service.py"
+  - "validation.py"
 models:
-  - seattle_ghg_model:latest
+  - seattle_ghg_model:ef2bubczx2co6zcj
 python:
   packages:
     - scikit-learn==1.7.2
