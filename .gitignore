@@ -1,11 +1,18 @@
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
 # Données lourdes
 *.csv
 
-# Python
-__pycache__/
-*.pyc
-.env
+# Installeurs
+*.deb
+*.tgz
 
+# Environnement virtuel
+venv/
+.env

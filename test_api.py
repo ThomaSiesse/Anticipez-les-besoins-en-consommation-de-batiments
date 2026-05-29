@@ -16,3 +16,6 @@ data = {
 
 response = requests.post("http://localhost:3000/predict", json=data)
 print(response.json())
+
+
+http://51.44.86.133:3000
